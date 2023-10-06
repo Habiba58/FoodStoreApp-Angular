@@ -1,0 +1,72 @@
+<form
+  [formGroup]="loginForm"
+  action=""
+  (ngSubmit)="submit(Email.value, pass.value)"
+  class="vh-100"
+>
+  <div class="d-flex justify-content-center">
+    <div class="form-holder mt-3">
+      <h3 class="text-center mb-5">Login Form</h3>
+      <div class="input-holder">
+        <label class="label" for="email">Email</label>
+        <div class="d-flex">
+          <i class="fa-solid fa-user form-icon"></i>
+          <input
+            #Email
+            id="email"
+            type="text"
+            placeholder="Type Your Email"
+            name="email"
+            formControlName="email"
+            class="input"
+          />
+        </div>
+      </div>
+      <div>
+        <div
+          class="alert alert-danger"
+          [hidden]="email?.valid || email?.untouched"
+        >
+          <small *ngIf="email?.errors?.['required']">Email is required</small>
+          <small *ngIf="email?.errors?.['email']"
+            >email pattern must must match this<b>******@*****.com</b></small
+          >
+        </div>
+      </div>
+      <div class="input-holder">
+        <label class="label" for="password">Password</label>
+        <div class="d-flex">
+          <i class="fa-solid fa-lock form-icon"></i>
+          <input
+            #pass
+            id="password"
+            type="password"
+            placeholder="Type Your Password"
+            name="password"
+            formControlName="password"
+            class="input"
+          />
+          <i
+          class="far fa-eye mt-2"
+          id="togglePassword"
+          style="cursor: pointer"
+          (click)="togglePassword()"
+        ></i>
+        </div>
+      </div>
+      <div
+        class="alert alert-danger"
+        [hidden]="password?.valid || password?.untouched"
+      >
+        <small *ngIf="password?.errors?.['required']"
+          >Password is required</small
+        >
+      </div>
+      <button class="btn w-100">Login</button>
+      <div class="mt-3 text-center register-link">
+        New User?
+        <a routerLink="/register">Register here</a>
+      </div>
+    </div>
+  </div>
+</form>

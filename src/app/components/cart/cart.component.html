@@ -1,0 +1,81 @@
+<section>
+  <h3>Cart Page</h3>
+  <app-notfound
+    [visible]="!cart || !cart.items.length"
+    Message="Cart Is Empty!"
+    resetLinkText="Go To Home Page"
+  ></app-notfound>
+  <div *ngIf="cart.items.length" class="container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="cartItem-holder rounded shadow-lg">
+          <div
+            *ngFor="let cartItem of cart.items; index as i"
+            class="d-flex cartItem"
+          >
+            <img
+              [src]="cartItem.food.imageUrl"
+              [alt]="cartItem.food.name"
+              class=""
+            />
+            <div
+              class="row d-flex justify-content-between align-items-center w-100"
+            >
+              <div class="col-md-3">
+                <span
+                  routerLink="/foodDetails/{{ cartItem.food.id }}"
+                  class="text-muted name-holder"
+                  >{{ cartItem.food.name }}</span
+                >
+              </div>
+              <div class="col-md-3">
+                <span>
+                  <select
+                    #quantitySelect
+                    [value]="cartItem.quantity"
+                    (change)="
+                      changeCartItemQuantity(
+                        cartItem.food.id,
+                        quantitySelect.value
+                      )
+                    "
+                  >
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </span>
+              </div>
+              <div class="col-md-3">
+                <span>{{ cartItem.price | currency }}</span>
+              </div>
+              <div class="col-md-3">
+                <span
+                  class="remove-class rounded p-1"
+                  (click)="removeFromCart(cartItem.food.id)"
+                >
+                  Remove</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div
+          class="checkout-holder rounded d-flex align-items-center justify-content-center"
+        >
+          <div class="w-100">
+            <div class="m-3 text-muted">Count:{{ cart.totalQuantity }}</div>
+            <div class="m-3 text-muted">
+              Price:{{ cart.totalPrice | currency }}
+            </div>
+            <button routerLink="/checkout" class="btn w-100 mb-3">Proceed to Checkout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

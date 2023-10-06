@@ -1,0 +1,44 @@
+.nav-holder {
+  font-family: "Quicksand", sans-serif;
+  font-size: large;
+  border-bottom: 1px solid #e72929;
+}
+.nav-logo {
+  font-weight: bold;
+}
+nav a {
+  color: #e72929;
+  text-decoration: none;
+}
+nav a:hover{
+ background-color: #e72929;
+ color: white;
+ cursor: pointer;
+}
+.submenu-holder{
+    position: relative;
+}
+.submenu{
+    position: absolute;
+    z-index: 1;
+}
+.submenu{
+    background-color: whitesmoke;
+    padding:0.5rem 1rem;
+    display: none;
+}
+.submenu a{
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+ }
+ .submenu-holder:hover .submenu{
+    display: block;
+ }
+.cart-number{
+    background-color: #e72929;
+    color: whitesmoke;
+    border-radius: 100rem;
+    font-size: 0.9rem;
+    padding: 0.1rem 0.45rem;
+}

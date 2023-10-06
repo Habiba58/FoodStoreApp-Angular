@@ -1,0 +1,52 @@
+section {
+  font-family: "Quicksand", sans-serif;
+}
+.search-holder button{
+  background-color: #e72929;
+  color: white;
+  height: 40px;
+  margin-left:0.3rem ;
+}
+.tag{
+  background-color: #f0f0f0;
+  padding: 0.3rem 1rem;
+  border-radius: 3rem;
+  font-weight: 600;
+  color: blue;
+  font-size: 0.8rem;
+}
+.tag:hover{
+  cursor: pointer;
+  opacity: 0.7;
+}
+.food-card p {
+  color: #e72929;
+  margin-bottom: 0;
+}
+.food-card:hover{
+  cursor: pointer;
+  opacity: 0.9;
+}
+ngb-rating {
+  color: #e72929;
+  font-size: 18px;
+}
+.origins span{
+  font-size: 0.8rem;
+  background-color: whitesmoke;
+  margin-right: 0.3rem;
+}
+.clock i{
+  font-size: 13px;
+  margin-right: 3px;
+}
+.clock span{
+  font-size: 0.9rem;
+  color: #e72929;
+}
+.price{
+  background: white;
+  color: #414141;
+  font-size: 1.1rem;
+}
+

@@ -1,0 +1,65 @@
+<section class="container mt-3">
+  <div class="search-holder d-flex justify-content-center">
+    <input
+      #searchbar
+      type="text"
+      class="form-control w-25 mb-3"
+      placeholder="Search Food Mine"
+    />
+    <button class="btn shadow-lg" (click)="search(searchbar.value)">
+      Search
+    </button>
+  </div>
+  <div class="tags-holder d-flex justify-content-center mb-3">
+    <span
+      *ngFor="let tag of tagsList"
+      class="tag mx-1"
+      (click)="tagRoute(tag.name)"
+    >
+      {{ tag.name }}({{ tag.count }})
+    </span>
+  </div>
+  <app-notfound
+  [visible]="!searchFound"
+  resetLinkText="Reset Search"
+  ></app-notfound>
+  <div class="row foodList-holder">
+    <div *ngFor="let food of foodList; index as i" class="col-md-3 mb-3">
+      <div class="food-card rounded shadow-lg" (click)="foodDetails(food.id)">
+        <img [src]="food.imageUrl" [alt]="food.name" class="w-100 rounded" />
+        <div class="card-header d-flex justify-content-between m-2">
+          <p class="name">{{ food.name }}</p>
+          <i
+            class="fa-solid fa-heart"
+            [style.color]="food.favorite ? 'red' : 'grey'"
+          >
+          </i>
+        </div>
+        <div class="starts ps-2">
+          <ngb-rating
+            [max]="5"
+            [rate]="food.stars"
+            [readonly]="true"
+          ></ngb-rating>
+        </div>
+        <div class="food-item-details d-flex justify-content-between mx-2">
+          <div class="origins">
+            <span
+              *ngFor="let origin of food.origins"
+              class="rounded p-1 text-muted"
+            >
+              {{ origin }}
+            </span>
+          </div>
+          <div class="clock">
+            <i class="fa-regular fa-clock"></i>
+            <span>{{ food.cookTime }}</span>
+          </div>
+        </div>
+        <div class="price m-2">
+          {{ food.price|currency }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+section {
+  font-family: "Quicksand", sans-serif;
+}
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+p{
+  margin: 0;
+}
+.name-holder {
+  border: 1px solid #ffbbbb;
+  margin: 0.5rem;
+}
+.holder-content{
+  font-weight: bold;
+}
+.address-holder {
+  border: 1px solid #ffbbbb;
+  margin: 0.5rem;
+}
+.cartItem-holder {
+  border: 1px solid #ffbbbb;
+  margin: 0.5rem;
+}
+.cartItem {
+  border-bottom: 1px solid #e4e4e4;
+  padding: 1rem;
+}
+.cartItem img {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 100rem;
+  margin-right: 1rem;
+}
+.cartItem span{
+  font-weight: bold;
+}
+.total-holder p{
+  font-weight: bold;
+}
+.btn {
+  background-color: #e72929;
+  color: white;
+}

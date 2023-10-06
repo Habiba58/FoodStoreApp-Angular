@@ -1,0 +1,52 @@
+<section class="food-card-details-holder container mt-5">
+  <app-notfound
+    [visible]="!foodItemFound"
+    Message="Food Not Found"
+    resetLinkText="Back To Home Page"
+  >
+  </app-notfound>
+  <div *ngIf="foodItemFound" class="row">
+    <div class="col-md-6">
+      <img
+        [src]="foodItem.imageUrl"
+        [alt]="foodItem.name"
+        class="rounded shadow-lg w-100"
+      />
+    </div>
+    <div class="ps-5 col-md mt-5">
+      <div class="header d-flex justify-content-between">
+        <p>{{ foodItem.name }}</p>
+        <i
+          class="fa-solid fa-heart"
+          [style.color]="foodItem.favorite ? '#e72929' : 'grey'"
+        >
+        </i>
+      </div>
+      <ngb-rating
+        [max]="5"
+        [rate]="foodItem.stars"
+        [readonly]="true"
+      ></ngb-rating>
+      <div class="origins mt-3">
+        <span
+          *ngFor="let origin of foodItem.origins"
+          class="rounded p-2 text-muted"
+        >
+          {{ origin }}
+        </span>
+      </div>
+      <div class="tags mt-3">
+        <span *ngFor="let tag of foodItem.tags" class="rounded p-1">
+          {{ tag }}
+        </span>
+      </div>
+      <div class="mt-3">
+        Time to cook about <b>{{ foodItem.cookTime }}</b> minuts
+      </div>
+      <div class="mt-3 price text-muted">
+        Price: {{ foodItem.price | currency }}
+      </div>
+      <button class="btn w-100 mt-3" (click)="addToCart()">Add to cart</button>
+    </div>
+  </div>
+</section>

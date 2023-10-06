@@ -1,0 +1,30 @@
+<nav class="my-4 container-fluid">
+  <div class="nav-holder mx-4 d-flex justify-content-between">
+    <div class="nav-logo">
+      <a routerLink="/Home">Food Mine!</a>
+    </div>
+    <div class="nav-items">
+      <ul class="list-unstyled d-flex">
+        <div *ngIf="!isLogged">
+          <li class="mx-2">
+            <a routerLink="/">Login</a>
+          </li>
+        </div>
+        <div *ngIf="isLogged">
+          <li class="mx-2 submenu-holder">
+            <a routerLink="/Home">{{ userName }}</a>
+            <div class="submenu rounded">
+              <a class="mx-2" routerLink="/Profile">Profile</a>
+              <a class="mx-2" routerLink="/Orders">Orders</a>
+              <a class="mx-2" routerLink="/Logout" (click)="logout()">Logout</a>
+            </div>
+          </li>
+        </div>
+        <li class="mx-2">
+          <a routerLink="/cartPage">Cart </a>
+          <span *ngIf="cartNumber && isLogged" class="cart-number">{{ cartNumber }}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

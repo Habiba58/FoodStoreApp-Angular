@@ -1,0 +1,34 @@
+section {
+  font-family: "Quicksand", sans-serif;
+}
+.header p {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.header i {
+  font-size: 1.5rem;
+}
+ngb-rating {
+  color: #e72929;
+  font-size: 18px;
+}
+.origins span {
+  font-size: 1rem;
+  background-color: whitesmoke;
+  margin-right: 0.3rem;
+}
+.tags span {
+  font-size: 1rem;
+  background-color: whitesmoke;
+  margin-right: 0.3rem;
+  color: blue;
+}
+.price{
+    font-size: 1.2rem;
+}
+.btn {
+  border-radius: 3rem;
+  background-color: #e72929;
+  color: white;
+  font-size: 1rem;
+}
